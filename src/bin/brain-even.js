@@ -14,7 +14,7 @@ const toPlay = () => {
     const userAnwer = askIsEven();
 
     if (rightAnswer !== userAnwer) {
-      console.log(`Sorry, but ${userAnwer} is wrong answer =( While right answer was ${rightAnswer}). Let's try again, ${userName}!`);
+      console.log(`\nSorry, but ${userAnwer} is wrong answer =( While right answer was ${rightAnswer}). Let's try again, ${userName}!`);
       return;
     }
     console.log('Correct!\n');

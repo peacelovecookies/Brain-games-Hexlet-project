@@ -2,7 +2,7 @@
 
 import { sayHi, askIsEven } from '..';
 
-console.log('Welcome to the Brain Games!\n\nAnswer "yes" if number even otherwise answer "no"');
+console.log('Welcome to the Brain Games!\n\nAnswer "yes" if number even otherwise answer "no"\n');
 
 const userName = sayHi();
 
@@ -17,7 +17,7 @@ const toPlay = () => {
       console.log(`Sorry, but ${userAnwer} is wrong answer =( While right answer was ${rightAnswer}). Let's try again, ${userName}!`);
       return;
     }
-    console.log('Correct!');
+    console.log('Correct!\n');
   }
   console.log(`Congratulations, ${userName}! You are a clever one ;)`);
 };

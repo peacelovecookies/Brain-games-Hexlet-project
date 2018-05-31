@@ -17,7 +17,7 @@ const playBrainEven = () => {
       console.log(`Is this number even: ${question}?`);
       const userAnwer = askPlayer();
 
-      if (checkAnswer(rightAnswer, userAnwer)) return;
+      if (!checkAnswer(rightAnswer, userAnwer)) return;
     }
     console.log(`Congratulations, ${userName}! You are a clever one ;)`);
   };

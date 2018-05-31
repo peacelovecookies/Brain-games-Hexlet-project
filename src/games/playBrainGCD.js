@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 
-import { sayHi, randomNum, findGCD, askPlayer, checkAnswer } from '..';
+import { sayHi, randomNum, askPlayer, checkAnswer } from '..';
+
+const findGCD = (a, b) => {
+  if (b === 0) return a;
+  return findGCD(b, (a % b));
+};
 
 const playBrainGCD = () => {
   const task = 'Find the greatest common divisor of given numbers.';
@@ -17,7 +22,7 @@ const playBrainGCD = () => {
       const userAnwer = askPlayer();
       if (!checkAnswer(rightAnswer, userAnwer, userName)) return;
     }
-    console.log(`Congratulations, ${userName}! You are rocking da hausse ;)`);
+    console.log(`Congratulations, ${userName}! You are rocking dat hausse ;)`);
   };
 
   toPlay(roundsNum);

@@ -26,8 +26,3 @@ export const checkAnswer = (rightAnswer, userAnwer, userName) => {
   console.log('Correct!\n');
   return true;
 };
-
-export const findGCD = (a, b) => {
-  if (b === 0) return a;
-  return findGCD(b, (a % b));
-};

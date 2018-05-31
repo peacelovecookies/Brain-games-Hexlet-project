@@ -14,7 +14,7 @@ const toPlay = (rounds) => {
 
     console.log(`Result of the expression: ${expression}?`);
 
-    const rightAnswer = eval(expression);
+    const rightAnswer = Number(eval(expression));
     const userAnwer = askPlayer();
     if (!checkAnswer(rightAnswer, userAnwer, userName)) return;
   }

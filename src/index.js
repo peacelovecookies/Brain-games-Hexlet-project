@@ -1,5 +1,9 @@
 import readlineSync from 'readline-sync';
 
+export playBrainEven from './games/playBrainEven';
+export playBrainCalc from './games/playBrainCalc';
+export playBrainGCD from './games/playBrainGCD';
+
 export const sayHi = (task) => {
   console.log(`Welcome to the Brain Games!\n\n${task}\n`);
   const userName = readlineSync.question('May I have your name, please? ');

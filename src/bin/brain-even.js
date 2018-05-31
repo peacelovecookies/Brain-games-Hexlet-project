@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { playBrainCalc } from '..';
+import { playBrainEven } from '..';
 
-playBrainCalc();
+playBrainEven();

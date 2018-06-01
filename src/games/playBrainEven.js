@@ -7,7 +7,7 @@ const isEven = num => (num % 2 === 0 ? 'yes' : 'no');
 const task = 'Answer "yes" if number even otherwise answer "no"';
 const roundsNum = 3;
 
-const playBrainEven = () => {
+export default () => {
   const userName = sayHi(task);
   const gameProperties = {
     userName,
@@ -21,5 +21,3 @@ const playBrainEven = () => {
 
   toPlay(roundsNum, gameProperties, farewell);
 };
-
-export default playBrainEven;

@@ -8,19 +8,25 @@ const findGCD = (a, b) => {
 };
 
 const task = 'Find the greatest common divisor of given numbers.';
-const userName = sayHi(task);
 const roundsNum = 3;
-const gameProperties = {
-  userName,
-  getArgs: () => [randomNum(1, 500), randomNum(1, 100)],
-  getOperator: () => '',
-  makeExpression: args => `${args[0]}, ${args[1]}`,
-  askQuestion: expression => `GCD of these numbers: ${expression}?`,
-  findAnswer: (args) => {
-    const sortedArgs = args.sort((a, b) => a < b);
-    return String(findGCD(sortedArgs[0], sortedArgs[1]));
-  },
-};
-const farewell = `Congratulations, ${userName}! You are rocking dat hausse ;)`;
 
-export default () => toPlay(roundsNum, gameProperties, farewell);
+const playBrainGCD = () => {
+  const userName = sayHi(task);
+  const gameProperties = {
+    userName,
+    getArgs: () => [randomNum(1, 500), randomNum(1, 100)],
+    getOperator: () => '',
+    makeExpression: args => `${args[0]}, ${args[1]}`,
+    askQuestion: expression => `GCD of these numbers: ${expression}?`,
+    findAnswer: (args) => {
+      const sortedArgs = args.sort((a, b) => a < b);
+      return String(findGCD(sortedArgs[0], sortedArgs[1]));
+    },
+  };
+  const farewell = `Congratulations, ${userName}! You are rocking dat hausse ;)`;
+
+  toPlay(roundsNum, gameProperties, farewell);
+};
+
+
+export default playBrainGCD;

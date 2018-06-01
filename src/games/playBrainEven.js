@@ -1,28 +1,19 @@
 #!/usr/bin/env node
 
-import { sayHi, randomNum, askPlayer, checkAnswer } from '..';
+import { sayHi, randomNum, toPlay } from '..';
 
 const isEven = num => (num % 2 === 0 ? 'yes' : 'no');
 
-const playBrainEven = () => {
-  const task = 'Answer "yes" if number even otherwise answer "no"';
-  const userName = sayHi(task);
-  const roundsNum = 3;
-
-  const toPlay = (rounds) => {
-    for (let i = 0; i < rounds; i += 1) {
-      const question = randomNum(1, 20);
-      const rightAnswer = isEven(question);
-
-      console.log(`Is this number even: ${question}?`);
-      const userAnwer = askPlayer();
-
-      if (!checkAnswer(rightAnswer, userAnwer)) return;
-    }
-    console.log(`Congratulations, ${userName}! You are a clever one ;)`);
-  };
-
-  toPlay(roundsNum);
+const task = 'Answer "yes" if number even otherwise answer "no"';
+const userName = sayHi(task);
+const roundsNum = 3;
+const gameProperties = {
+  askQuestion: expression => `Is this number even: ${expression}?`,
+  makeExpression: args => args[0],
+  getArgs: () => [randomNum(1, 40)],
+  findAnswer: args => isEven(args[0]),
+  userName,
 };
+const farewell = `Congratulations, ${userName}! You are a clever one ;)`;
 
-export default playBrainEven;
+export default toPlay(roundsNum, gameProperties, farewell);

@@ -1,4 +1,4 @@
-import { sayHi, randomNum, askPlayer, checkAnswer } from '..';
+import { sayHi, randomNum, toPlay } from '..';
 
 const operators = ['+', '-', '*'];
 const operations = {
@@ -7,28 +7,17 @@ const operations = {
   '*': (arg1, arg2) => String(arg1 * arg2),
 };
 
-const playBrainCalc = () => {
-  const task = 'What is the result of the expression?';
-  const userName = sayHi(task);
-  const roundsNum = 5;
-
-  const toPlay = (rounds) => {
-    for (let i = 0; i < rounds; i += 1) {
-      const arg1 = randomNum(1, 40);
-      const arg2 = randomNum(1, 40);
-      const currentOperator = operators[randomNum(0, 2)];
-      const question = `${arg1} ${currentOperator} ${arg2}`;
-
-      console.log(`Result of the expression: ${question}?`);
-
-      const rightAnswer = operations[currentOperator](arg1, arg2);
-      const userAnwer = askPlayer();
-      if (!checkAnswer(rightAnswer, userAnwer, userName)) return;
-    }
-    console.log(`Congratulations, ${userName}! You are as hot as a calculator ;)`);
-  };
-
-  toPlay(roundsNum);
+const task = 'What is the result of the expression?';
+const userName = sayHi(task);
+const roundsNum = 5;
+const gameProperties = {
+  getArgs: () => [randomNum(1, 40), randomNum(1, 40)],
+  makeExpression: (args, operator) => `${args[0]} ${operator} ${args[1]}`,
+  askQuestion: expression => `Result of the expression: ${expression}?`,
+  findAnswer: (args, operator) => String(operations[operator](args[0], args[1])),
+  getOperator: () => [operators[randomNum(0, 2)]],
+  userName,
 };
+const farewell = `Congratulations, ${userName}! You are as hot as a calculator ;)`;
 
-export default playBrainCalc;
+export default toPlay(roundsNum, gameProperties, farewell);

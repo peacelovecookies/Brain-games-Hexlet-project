@@ -1,9 +1,5 @@
 import readlineSync from 'readline-sync';
 
-export playBrainEven from './games/playBrainEven';
-export playBrainCalc from './games/playBrainCalc';
-export playBrainGCD from './games/playBrainGCD';
-
 export const sayHi = (task) => {
   console.log(`Welcome to the Brain Games!\n\n${task}\n`);
   const userName = readlineSync.question('May I have your name, please? ');
@@ -18,11 +14,19 @@ export const askPlayer = () => {
 
 export const randomNum = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-export const checkAnswer = (rightAnswer, userAnwer, userName) => {
-  if (rightAnswer !== userAnwer) {
-    console.log(`\nSorry, but ${userAnwer} is wrong answer =( While right answer was ${rightAnswer}). Let's try again, ${userName}!`);
-    return false;
+export const toPlay = (rounds, properties, farewell) => {
+  for (let i = 0; i < rounds; i += 1) {
+    const args = properties.getArgs();
+    const currentOperator = properties.getOperator();
+    const expression = properties.makeExpression(args, currentOperator);
+    const rightAnswer = properties.findAnswer(args, currentOperator);
+    console.log(properties.askQuestion(expression));
+    const usersAnswer = askPlayer();
+    if (rightAnswer !== usersAnswer) {
+      console.log(`\nSorry, but ${usersAnswer} is wrong answer =( While right answer was ${rightAnswer}. Let's try again, ${properties.userName}!`);
+      return;
+    }
+    console.log('Correct!\n');
   }
-  console.log('Correct!\n');
-  return true;
+  console.log(farewell);
 };

@@ -8,11 +8,12 @@ const task = 'Answer "yes" if number even otherwise answer "no"';
 const userName = sayHi(task);
 const roundsNum = 3;
 const gameProperties = {
-  askQuestion: expression => `Is this number even: ${expression}?`,
-  makeExpression: args => args[0],
-  getArgs: () => [randomNum(1, 40)],
-  findAnswer: args => isEven(args[0]),
   userName,
+  getArgs: () => [randomNum(1, 40)],
+  getOperator: '',
+  makeExpression: args => args[0],
+  askQuestion: expression => `Is this number even: ${expression}?`,
+  findAnswer: args => isEven(args[0]),
 };
 const farewell = `Congratulations, ${userName}! You are a clever one ;)`;
 

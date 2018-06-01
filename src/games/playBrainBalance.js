@@ -26,11 +26,10 @@ const playBrainBalance = () => {
     getArgs: () => [randomNum(300, 9999)],
     getOperator: () => '',
     makeExpression: args => `${args[0]}`,
-    askQuestion: expression => `Make these number balanced: ${expression}`,
+    askQuestion: expression => `Make this number balanced: ${expression}`,
     findAnswer: (args) => {
       const arrOfDigits = String(args[0]).split('');
-      const sumOfDigits = arrOfDigits.reduce((acc, digit) => acc + digit, 0);
-
+      const sumOfDigits = arrOfDigits.reduce((acc, digit) => acc + Number(digit), 0);
       return balanceNumbers(sumOfDigits, '', arrOfDigits.length);
     },
   };

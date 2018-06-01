@@ -23,4 +23,4 @@ const gameProperties = {
 };
 const farewell = `Congratulations, ${userName}! You are rocking dat hausse ;)`;
 
-export default toPlay(roundsNum, gameProperties, farewell);
+export default () => toPlay(roundsNum, gameProperties, farewell);

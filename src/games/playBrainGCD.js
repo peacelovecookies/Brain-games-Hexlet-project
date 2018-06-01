@@ -13,7 +13,7 @@ const roundsNum = 3;
 const gameProperties = {
   userName,
   getArgs: () => [randomNum(1, 500), randomNum(1, 100)],
-  getOperator: '',
+  getOperator: () => '',
   makeExpression: args => `${args[0]}, ${args[1]}`,
   askQuestion: expression => `GCD of these numbers: ${expression}?`,
   findAnswer: (args) => {

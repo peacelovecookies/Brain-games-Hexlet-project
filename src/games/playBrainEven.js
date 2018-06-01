@@ -10,7 +10,7 @@ const roundsNum = 3;
 const gameProperties = {
   userName,
   getArgs: () => [randomNum(1, 40)],
-  getOperator: '',
+  getOperator: () => '',
   makeExpression: args => args[0],
   askQuestion: expression => `Is this number even: ${expression}?`,
   findAnswer: args => isEven(args[0]),

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import toPlay from '..';
-import { randomNum } from '../utils';
+import randomNum from '../utils';
 
 const isEven = num => (num % 2 === 0 ? 'yes' : 'no');
 

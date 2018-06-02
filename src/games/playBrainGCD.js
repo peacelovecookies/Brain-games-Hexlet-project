@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import toPlay from '..';
-import { randomNum } from '../utils';
+import randomNum from '../utils';
 
 const findGCD = (a, b) => {
   if (b === 0) return a;

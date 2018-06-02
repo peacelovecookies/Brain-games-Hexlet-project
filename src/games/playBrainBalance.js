@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import toPlay from '..';
-import { randomNum } from '../utils';
+import randomNum from '../utils';
 
 const balanceNumbers = (sum, result, digitsAmmount) => {
   if (sum % digitsAmmount === 0) {

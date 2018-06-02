@@ -12,8 +12,8 @@ const toPlay = (task, properties) => {
 
   for (let i = 0; i < 3; i += 1) {
     const args = properties.getArgs();
-    const question = properties.question(args);
     const currentOperator = properties.getOperator();
+    const question = properties.question(args, currentOperator);
     const rightAnswer = properties.findAnswer(args, currentOperator);
     console.log(`Question: ${question}`);
     const usersAnswer = askPlayer();
@@ -23,7 +23,7 @@ const toPlay = (task, properties) => {
     }
     console.log('Correct!\n');
   }
-  console.log(`Congratulations, ${userName}! You are clevear ;)`);
+  console.log(`Congratulations, ${userName}! You are clever ;)`);
 };
 
 export default toPlay;

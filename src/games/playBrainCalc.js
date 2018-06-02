@@ -15,7 +15,7 @@ const task = 'What is the result of the expression?';
 const playBrainCalc = () => {
   const gameProperties = {
     getArgs: () => [randomNum(1, 40), randomNum(1, 40)],
-    getOperator: () => [operators[randomNum(0, 2)]],
+    getOperator: () => operators[randomNum(0, 2)],
     question: (args, operator) => `${args[0]} ${operator} ${args[1]}`,
     findAnswer: (args, operator) => String(operations[operator](args[0], args[1])),
   };

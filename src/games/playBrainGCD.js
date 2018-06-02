@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import { sayHi, randomNum, toPlay } from '..';
+import toPlay from '..';
+import randomNum from '../utils';
 
 const findGCD = (a, b) => {
   if (b === 0) return a;
@@ -8,24 +9,19 @@ const findGCD = (a, b) => {
 };
 
 const task = 'Find the greatest common divisor of given numbers.';
-const roundsNum = 3;
 
 const playBrainGCD = () => {
-  const userName = sayHi(task);
   const gameProperties = {
-    userName,
     getArgs: () => [randomNum(1, 500), randomNum(1, 100)],
     getOperator: () => '',
-    makeExpression: args => `${args[0]}, ${args[1]}`,
-    askQuestion: expression => `GCD of these numbers: ${expression}?`,
+    question: args => `${args[0]}, ${args[1]}`,
     findAnswer: (args) => {
       const sortedArgs = args.sort((a, b) => a < b);
       return String(findGCD(sortedArgs[0], sortedArgs[1]));
     },
   };
-  const farewell = `Congratulations, ${userName}! You are rocking dat hausse ;)`;
 
-  toPlay(roundsNum, gameProperties, farewell);
+  toPlay(task, gameProperties);
 };
 
 

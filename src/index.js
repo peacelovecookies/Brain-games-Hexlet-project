@@ -15,7 +15,7 @@ const toPlay = (task, properties) => {
     console.log(question);
     const usersAnswer = askPlayer();
     if (rightAnswer !== usersAnswer) {
-      console.log(`\nSorry, but ${usersAnswer} is wrong answer =( While right answer was ${rightAnswer}. Let's try again, ${userName}!`);
+      console.log(`\nSorry, but "${usersAnswer}" is wrong answer =( While right answer was "${rightAnswer}". ${userName}, let's do it again!`);
       return;
     }
     console.log('Correct!\n');

@@ -25,8 +25,7 @@ const playBrainBalance = () => {
   const gameProperties = {
     getArgs: () => [randomNum(300, 9999)],
     getOperator: () => '',
-    makeExpression: args => `${args[0]}`,
-    askQuestion: expression => `Make this number balanced: ${expression}`,
+    question: args => `${args[0]}`,
     findAnswer: (args) => {
       const arrOfDigits = String(args[0]).split('');
       const sumOfDigits = arrOfDigits.reduce((acc, digit) => acc + Number(digit), 0);

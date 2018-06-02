@@ -16,8 +16,7 @@ const playBrainCalc = () => {
   const gameProperties = {
     getArgs: () => [randomNum(1, 40), randomNum(1, 40)],
     getOperator: () => [operators[randomNum(0, 2)]],
-    makeExpression: (args, operator) => `${args[0]} ${operator} ${args[1]}`,
-    askQuestion: expression => `Result of the expression: ${expression}?`,
+    question: (args, operator) => `${args[0]} ${operator} ${args[1]}`,
     findAnswer: (args, operator) => String(operations[operator](args[0], args[1])),
   };
 

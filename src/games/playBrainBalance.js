@@ -1,4 +1,4 @@
-import { sayHi, randomNum, toPlay } from '..';
+import { randomNum, toPlay } from '..';
 
 const balanceNumbers = (sum, result, digitsAmmount) => {
   if (sum % digitsAmmount === 0) {
@@ -17,12 +17,9 @@ const balanceNumbers = (sum, result, digitsAmmount) => {
 };
 
 const task = 'Balance the given number.';
-const roundsNum = 3;
 
 const playBrainBalance = () => {
-  const userName = sayHi(task);
   const gameProperties = {
-    userName,
     getArgs: () => [randomNum(300, 9999)],
     getOperator: () => '',
     makeExpression: args => `${args[0]}`,
@@ -33,9 +30,7 @@ const playBrainBalance = () => {
       return balanceNumbers(sumOfDigits, '', arrOfDigits.length);
     },
   };
-  const farewell = `Wow! ${userName}, I see you found my algorithm of balance numbers on repl.it or you are just have an awesome brains ;)`;
-
-  toPlay(roundsNum, gameProperties, farewell);
+  toPlay(task, gameProperties);
 };
 
 export default playBrainBalance;

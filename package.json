@@ -1,6 +1,6 @@
 {
   "name": "brain-games-by-peacelovecookies",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Study project named \"Brain Games\", Hexlet.io 1lvl",
   "main": "dist/bin/brain-games.js",
   "scripts": {

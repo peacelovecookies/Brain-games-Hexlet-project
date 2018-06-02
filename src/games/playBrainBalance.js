@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import toPlay from '..';
-import randomNum from '../utils';
+import { randomNum } from '../utils';
 
 const balanceNumbers = (sum, result, digitsAmmount) => {
   if (sum % digitsAmmount === 0) {
@@ -22,15 +22,13 @@ const balanceNumbers = (sum, result, digitsAmmount) => {
 const task = 'Balance the given number.';
 
 const playBrainBalance = () => {
-  const gameProperties = {
-    getArgs: () => [randomNum(300, 9999)],
-    getOperator: () => '',
-    question: args => `${args[0]}`,
-    findAnswer: (args) => {
-      const arrOfDigits = String(args[0]).split('');
-      const sumOfDigits = arrOfDigits.reduce((acc, digit) => acc + Number(digit), 0);
-      return balanceNumbers(sumOfDigits, '', arrOfDigits.length);
-    },
+  const gameProperties = () => {
+    const num = randomNum(300, 9999);
+    const question = `Balance these number: ${num}?`;
+    const arrOfDigits = String(num).split('');
+    const sumOfDigits = arrOfDigits.reduce((acc, digit) => acc + Number(digit), 0);
+    const rightAnswer = balanceNumbers(sumOfDigits, '', arrOfDigits.length);
+    return { question, rightAnswer };
   };
   toPlay(task, gameProperties);
 };

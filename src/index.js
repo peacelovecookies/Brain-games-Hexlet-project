@@ -11,11 +11,8 @@ const toPlay = (task, properties) => {
   console.log(`Hi, my dear, ${userName}\n\nNow let's play!`);
 
   for (let i = 0; i < 3; i += 1) {
-    const args = properties.getArgs();
-    const currentOperator = properties.getOperator();
-    const question = properties.question(args, currentOperator);
-    const rightAnswer = properties.findAnswer(args, currentOperator);
-    console.log(`Question: ${question}`);
+    const { rightAnswer, question } = properties();
+    console.log(question);
     const usersAnswer = askPlayer();
     if (rightAnswer !== usersAnswer) {
       console.log(`\nSorry, but ${usersAnswer} is wrong answer =( While right answer was ${rightAnswer}. Let's try again, ${userName}!`);
@@ -23,7 +20,7 @@ const toPlay = (task, properties) => {
     }
     console.log('Correct!\n');
   }
-  console.log(`Congratulations, ${userName}! You are clever ;)`);
+  console.log(`Congratulations, ${userName}! You are a clever ;)`);
 };
 
 export default toPlay;

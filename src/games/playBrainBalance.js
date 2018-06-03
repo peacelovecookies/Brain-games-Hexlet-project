@@ -3,20 +3,25 @@
 import toPlay from '..';
 import randomNum from '../utils';
 
-const balanceNumber = (sum, result, digitsAmmount) => {
-  if (sum % digitsAmmount === 0) {
-    const currentDigit = String(sum / digitsAmmount);
-    let newResult = result;
-    for (let i = digitsAmmount; i > 0; i -= 1) {
-      newResult += currentDigit;
+const balanceNumber = (num) => {
+  const arrOfDigits = String(num).split('');
+  const sumOfDigits = arrOfDigits.reduce((acc, digit) => acc + Number(digit), 0);
+  const iter = (sum, result, digitsAmmount) => {
+    if (sum % digitsAmmount === 0) {
+      const currentDigit = String(sum / digitsAmmount);
+      let newResult = result;
+      for (let i = digitsAmmount; i > 0; i -= 1) {
+        newResult += currentDigit;
+      }
+      return newResult;
     }
-    return newResult;
-  }
 
-  const currentDigit = Math.floor(sum / digitsAmmount);
-  const newSum = sum - currentDigit;
-  const newResult = result + String(currentDigit);
-  return balanceNumber(newSum, newResult, digitsAmmount - 1);
+    const currentDigit = Math.floor(sum / digitsAmmount);
+    const newSum = sum - currentDigit;
+    const newResult = result + String(currentDigit);
+    return iter(newSum, newResult, digitsAmmount - 1);
+  };
+  return iter(sumOfDigits, '', arrOfDigits.length);
 };
 
 const task = 'Balance the given number.';
@@ -25,9 +30,7 @@ const playBrainBalance = () => {
   const gameProperties = () => {
     const num = randomNum(300, 9999);
     const question = `Balance these number: ${num}?`;
-    const arrOfDigits = String(num).split('');
-    const sumOfDigits = arrOfDigits.reduce((acc, digit) => acc + Number(digit), 0);
-    const rightAnswer = balanceNumber(sumOfDigits, '', arrOfDigits.length);
+    const rightAnswer = balanceNumber(num);
     return { question, rightAnswer };
   };
   toPlay(task, gameProperties);

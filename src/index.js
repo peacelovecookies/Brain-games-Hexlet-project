@@ -20,7 +20,7 @@ const toPlay = (task, properties) => {
     }
     console.log('Correct!\n');
   }
-  console.log(`Congratulations, ${userName}! You are a clever ;)`);
+  console.log(`Congratulations, ${userName}! You are a clever one ;)`);
 };
 
 export default toPlay;

@@ -14,9 +14,8 @@ const playBrainGCD = () => {
   const gameProperties = () => {
     const num1 = randomNum(1, 50);
     const num2 = randomNum(1, 100);
-    const sortedArgs = [num1, num2].sort((a, b) => a < b);
     const question = `Find GCD of these numbers: ${num1}, ${num2}?`;
-    const rightAnswer = String(findGCD(sortedArgs[0], sortedArgs[1]));
+    const rightAnswer = String(findGCD(num1, num2));
     return { question, rightAnswer };
   };
 

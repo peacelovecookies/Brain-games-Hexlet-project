@@ -4,7 +4,7 @@ import toPlay from '..';
 import randomNum from '../utils';
 
 const isPrime = (num) => {
-  if (num === 1) return false;
+  if (num < 2) return false;
   let divisor = 2;
   while (divisor * divisor <= num) {
     if (num % divisor === 0) return false;

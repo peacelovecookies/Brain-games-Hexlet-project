@@ -1,6 +1,6 @@
 {
   "name": "brain-games-by-peacelovecookies",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Study project named \"Brain Games\", Hexlet.io 1lvl",
   "scripts": {
     "babel-node": "babel-node",

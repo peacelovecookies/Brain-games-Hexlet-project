@@ -7,8 +7,8 @@ const isPrime = (num) => {
   if (num === 1) return false;
   let divisor = 2;
   while (divisor * divisor <= num) {
-    divisor += 1;
     if (num % divisor === 0) return false;
+    divisor += 1;
   }
   return true;
 };

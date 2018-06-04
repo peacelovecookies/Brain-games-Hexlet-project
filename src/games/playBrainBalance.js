@@ -4,8 +4,8 @@ import toPlay from '..';
 import randomNum from '../utils';
 
 const balanceNumber = (num) => {
-  const arrOfDigits = String(num).split('');
-  const sumOfDigits = arrOfDigits.reduce((acc, digit) => acc + Number(digit), 0);
+  const arrOfDigits = String(num).split('').map(Number);
+  const sumOfDigits = arrOfDigits.reduce((acc, digit) => acc + digit, 0);
   const iter = (sum, result, digitsAmmount) => {
     if (sum % digitsAmmount === 0) {
       const currentDigit = String(sum / digitsAmmount);
